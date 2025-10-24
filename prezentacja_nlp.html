@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szkolenie NLP - Prezentacja</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+        
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-align: center;
+        }
+        
+        .slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #764ba2;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        .slide h3 {
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            color: #667eea;
+        }
+        
+        .slide ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .slide ul li {
+            font-size: 1.3em;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .slide ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+        
+        .nav-button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: #667eea;
+            color: white;
+        }
+        
+        .slide-number {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        
+        .emoji {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .title-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slajd 1: Tytuł -->
+        <div class="slide active title-slide">
+            <h1><span class="emoji">🚀</span> Przetwarzanie Języka Naturalnego</h1>
+            <h1>(NLP)</h1>
+            <p class="subtitle">Od podstaw do zaawansowanych zastosowań biznesowych</p>
+            <p class="subtitle" style="margin-top: 40px; font-size: 1.2em;">Dwudniowe intensywne szkolenie</p>
+        </div>
+
+        <!-- Slajd 2: Agenda -->
+        <div class="slide">
+            <h2>📋 Program Szkolenia</h2>
+            <div class="two-column">
+                <div class="box">
+                    <h3>Dzień 1: Podstawy NLP</h3>
+                    <ul>
+                        <li>Wprowadzenie do NLP</li>
+                        <li>Narzędzia i biblioteki</li>
+                        <li>Podstawowe operacje</li>
+                        <li>Warsztaty praktyczne</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>Dzień 2: Zaawansowane</h3>
+                    <ul>
+                        <li>Modele Transformer</li>
+                        <li>BERT, GPT, T5</li>
+                        <li>Generowanie tekstu</li>
+                        <li>Zastosowania biznesowe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slajd 3: Czym jest NLP -->
+        <div class="slide">
+            <h2>🤖 Czym jest NLP?</h2>
+            <div class="highlight">
+                <strong>Natural Language Processing</strong> - dziedzina AI zajmująca się interakcją między komputerami a językiem ludzkim
+            </div>
+            <h3>Główne cele NLP:</h3>
+            <ul>
+                <li><strong>Rozumienie</strong> - analiza i interpretacja tekstu</li>
+                <li><strong>Generowanie</strong> - tworzenie naturalnie brzmiącego tekstu</li>
+                <li><strong>Przekształcanie</strong> - tłumaczenia, podsumowania, parafrazy</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 4: Wyzwania w NLP -->
+        <div class="slide">
+            <h2>⚡ Wyzwania w NLP</h2>
+            <ul style="font-size: 1.4em;">
+                <li><strong>Wieloznaczność</strong> - "bank" (brzeg rzeki vs instytucja finansowa)</li>
+                <li><strong>Kontekst</strong> - znaczenie zależy od kontekstu</li>
+                <li><strong>Idiomy</strong> - "spać jak suseł" nie dotyczy zwierząt</li>
+                <li><strong>Sarkazm i ironia</strong> - trudne do wykrycia</li>
+                <li><strong>Błędy</strong> - ortograficzne i gramatyczne</li>
+                <li><strong>Różnorodność</strong> - dialekty, slang, nowe słowa</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 5: Zastosowania NLP -->
+        <div class="slide">
+            <h2>💼 Zastosowania NLP w biznesie</h2>
+            <div class="two-column">
+                <div>
+                    <h3>📊 Analiza danych</h3>
+                    <ul>
+                        <li>Analiza sentymentu</li>
+                        <li>Monitoring marki</li>
+                        <li>Analiza opinii klientów</li>
+                    </ul>
+                    <h3>🤖 Automatyzacja</h3>
+                    <ul>
+                        <li>Chatboty i asystenci</li>
+                        <li>Przetwarzanie dokumentów</li>
+                        <li>Automatyczne odpowiedzi</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🌍 Komunikacja</h3>
+                    <ul>
+                        <li>Tłumaczenia maszynowe</li>
+                        <li>Podsumowania tekstów</li>
+                        <li>Generowanie treści</li>
+                    </ul>
+                    <h3>🔍 Wyszukiwanie</h3>
+                    <ul>
+                        <li>Systemy Q&A</li>
+                        <li>Wyszukiwanie semantyczne</li>
+                        <li>Ekstrakcja informacji</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slajd 6: Narzędzia -->
+        <div class="slide">
+            <h2>🛠️ Główne narzędzia NLP</h2>
+            <table>
+                <tr>
+                    <th>Biblioteka</th>
+                    <th>Zastosowanie</th>
+                    <th>Poziom</th>
+                </tr>
+                <tr>
+                    <td><strong>NLTK</strong></td>
+                    <td>Edukacja, prototypy, podstawowe operacje</td>
+                    <td>Początkujący</td>
+                </tr>
+                <tr>
+                    <td><strong>spaCy</strong></td>
+                    <td>Produkcja, szybkie pipeline'y</td>
+                    <td>Średniozaawansowany</td>
+                </tr>
+                <tr>
+                    <td><strong>Hugging Face</strong></td>
+                    <td>Transformery, najnowsze modele</td>
+                    <td>Zaawansowany</td>
+                </tr>
+                <tr>
+                    <td><strong>OpenAI API</strong></td>
+                    <td>GPT-4, najpotężniejsze LLM</td>
+                    <td>Wszystkie</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slajd 7: Podstawowe operacje -->
+        <div class="slide">
+            <h2>⚙️ Podstawowe operacje NLP</h2>
+            <h3>1. Tokenizacja</h3>
+            <ul>
+                <li>Podział tekstu na słowa lub zdania</li>
+                <li>"Cześć! Jak się masz?" → ["Cześć", "!", "Jak", "się", "masz", "?"]</li>
+            </ul>
+            <h3>2. Lematyzacja</h3>
+            <ul>
+                <li>Sprowadzenie słów do formy podstawowej</li>
+                <li>"biegający", "biegałem" → "biegać"</li>
+            </ul>
+            <h3>3. Stop Words</h3>
+            <ul>
+                <li>Usuwanie najczęstszych, mało znaczących słów</li>
+                <li>"i", "w", "na", "z", "jest", "to"</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 8: Ewolucja modeli -->
+        <div class="slide">
+            <h2>📈 Ewolucja modeli NLP</h2>
+            <div style="margin-top: 40px;">
+                <h3>Klasyczne podejścia (do 2017)</h3>
+                <ul>
+                    <li>Bag of Words (BoW)</li>
+                    <li>TF-IDF</li>
+                    <li>Word2Vec, GloVe</li>
+                </ul>
+                <div style="height: 30px;"></div>
+                <h3>🚀 Nowoczesne (od 2017)</h3>
+                <ul>
+                    <li><strong>2017:</strong> Transformers (Attention is All You Need)</li>
+                    <li><strong>2018:</strong> BERT, GPT</li>
+                    <li><strong>2020:</strong> GPT-3 (175B parametrów)</li>
+                    <li><strong>2023:</strong> GPT-4, Claude, LLaMA</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slajd 9: Architektura Transformer -->
+        <div class="slide">
+            <h2>🏗️ Architektura Transformer</h2>
+            <div class="highlight">
+                <strong>Rewolucja 2017:</strong> Paper "Attention is All You Need"
+            </div>
+            <h3>Kluczowe komponenty:</h3>
+            <ul>
+                <li><strong>Self-Attention</strong> - każde słowo "patrzy" na wszystkie inne</li>
+                <li><strong>Multi-Head Attention</strong> - wiele równoległych mechanizmów uwagi</li>
+                <li><strong>Positional Encoding</strong> - koduje pozycję słowa</li>
+                <li><strong>Feed-Forward Networks</strong> - przetwarzanie każdej pozycji</li>
+            </ul>
+            <h3>Dlaczego wygrały?</h3>
+            <ul>
+                <li>Równoległe przetwarzanie = szybszy trening</li>
+                <li>Lepsze rozumienie długiego kontekstu</li>
+                <li>Skalowalne do miliardów parametrów</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 10: BERT vs GPT -->
+        <div class="slide">
+            <h2>⚔️ BERT vs GPT</h2>
+            <table>
+                <tr>
+                    <th>Aspekt</th>
+                    <th>BERT</th>
+                    <th>GPT</th>
+                </tr>
+                <tr>
+                    <td><strong>Architektura</strong></td>
+                    <td>Encoder</td>
+                    <td>Decoder</td>
+                </tr>
+                <tr>
+                    <td><strong>Kierunek</strong></td>
+                    <td>Bidirectional (obie strony)</td>
+                    <td>Unidirectional (lewo→prawo)</td>
+                </tr>
+                <tr>
+                    <td><strong>Training</strong></td>
+                    <td>Masked Language Model</td>
+                    <td>Causal Language Model</td>
+                </tr>
+                <tr>
+                    <td><strong>Główne zastosowanie</strong></td>
+                    <td>Rozumienie tekstu</td>
+                    <td>Generowanie tekstu</td>
+                </tr>
+                <tr>
+                    <td><strong>Przykłady</strong></td>
+                    <td>Klasyfikacja, NER, Q&A</td>
+                    <td>ChatGPT, pisanie, kod</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slajd 11: Fine-tuning -->
+        <div class="slide">
+            <h2>🎯 Fine-tuning modeli</h2>
+            <div class="highlight">
+                Dostosowanie pre-trenowanego modelu do konkretnego zadania
+            </div>
+            <h3>Dlaczego fine-tuning?</h3>
+            <ul>
+                <li>Znacznie szybsze niż trening od zera</li>
+                <li>Wymaga mniej danych (setki zamiast milionów przykładów)</li>
+                <li>Lepsza jakość dla specyficznych domen</li>
+                <li>Ekonomiczne - mniejsze koszty obliczeniowe</li>
+            </ul>
+            <h3>Kiedy fine-tunować?</h3>
+            <ul>
+                <li>Specyficzna domena (medycyna, prawo, finanse)</li>
+                <li>Masz etykietowane dane treningowe</li>
+                <li>Ogólne modele nie dają wystarczającej jakości</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 12: Zadania NLP -->
+        <div class="slide">
+            <h2>📝 Popularne zadania NLP</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Rozumienie</h3>
+                    <ul>
+                        <li>Sentiment Analysis</li>
+                        <li>Named Entity Recognition</li>
+                        <li>Text Classification</li>
+                        <li>Question Answering</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Generowanie</h3>
+                    <ul>
+                        <li>Text Generation</li>
+                        <li>Summarization</li>
+                        <li>Translation</li>
+                        <li>Paraphrasing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slajd 13: Chatboty -->
+        <div class="slide">
+            <h2>💬 Rodzaje chatbotów</h2>
+            <h3>1. Rule-based</h3>
+            <ul>
+                <li>Działają według predefiniowanych reguł</li>
+                <li>Szybkie, przewidywalne, dobre dla FAQ</li>
+            </ul>
+            <h3>2. Retrieval-based</h3>
+            <ul>
+                <li>Wybierają odpowiedź z bazy gotowych odpowiedzi</li>
+                <li>Średnia elastyczność</li>
+            </ul>
+            <h3>3. Generative (LLM)</h3>
+            <ul>
+                <li>Generują odpowiedzi od zera (GPT, Claude)</li>
+                <li>Maksymalna elastyczność, najbardziej "ludzkie"</li>
+                <li>Wymagają monitoringu (mogą generować błędy)</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 14: Automatyzacja dokumentów -->
+        <div class="slide">
+            <h2>📄 Automatyzacja dokumentów</h2>
+            <h3>Przypadki użycia:</h3>
+            <ul>
+                <li><strong>Faktury</strong> - ekstrakcja kwot, dat, kontrahentów</li>
+                <li><strong>CV</strong> - wydobycie umiejętności, doświadczenia</li>
+                <li><strong>Klasyfikacja</strong> - sortowanie według typu</li>
+                <li><strong>Dokumenty prawne</strong> - ekstrakcja klauzul</li>
+                <li><strong>Raporty</strong> - automatyczne streszczenia</li>
+            </ul>
+            <div class="highlight" style="margin-top: 30px;">
+                <strong>ROI:</strong> Redukcja czasu przetwarzania o 80-90% 🚀
+            </div>
+        </div>
+
+        <!-- Slajd 15: Personalizacja -->
+        <div class="slide">
+            <h2>🎨 Personalizacja komunikacji</h2>
+            <h3>Elementy personalizacji:</h3>
+            <ul>
+                <li>Dane klienta (imię, historia zakupów)</li>
+                <li>Segment klienta (nowy, VIP, nieaktywny)</li>
+                <li>Preferencje i zainteresowania</li>
+                <li>Kontekst (pora dnia, lokalizacja, urządzenie)</li>
+                <li>Poprzednie interakcje</li>
+            </ul>
+            <div class="highlight" style="margin-top: 30px;">
+                <strong>Wynik:</strong> Spersonalizowane wiadomości mają 6x wyższy współczynnik konwersji
+            </div>
+        </div>
+
+        <!-- Slajd 16: Best Practices -->
+        <div class="slide">
+            <h2>✅ Best Practices dla produkcji</h2>
+            <div class="two-column">
+                <div class="box">
+                    <h3>Wydajność</h3>
+                    <ul style="font-size: 1.1em;">
+                        <li>Cache'owanie predykcji</li>
+                        <li>Batch processing</li>
+                        <li>GPU dla inference</li>
+                        <li>Mniejsze modele (DistilBERT)</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>Jakość</h3>
+                    <ul style="font-size: 1.1em;">
+                        <li>Monitoruj drift modelu</li>
+                        <li>Zbieraj feedback</li>
+                        <li>Waliduj output</li>
+                        <li>A/B testing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box" style="margin-top: 30px;">
+                <h3>Bezpieczeństwo</h3>
+                <ul style="font-size: 1.1em;">
+                    <li>Nie wysyłaj wrażliwych danych do zewnętrznych API</li>
+                    <li>Implementuj rate limiting</li>
+                    <li>Sanityzuj input i output</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slajd 17: Case Study -->
+        <div class="slide">
+            <h2>📊 Case Study: System obsługi klienta</h2>
+            <h3>Komponenty:</h3>
+            <ul>
+                <li><strong>Intent Classification</strong> - rozpoznanie intencji (reklamacja, pytanie, zamówienie)</li>
+                <li><strong>Sentiment Analysis</strong> - analiza emocji klienta</li>
+                <li><strong>Entity Extraction</strong> - wydobycie kluczowych informacji</li>
+                <li><strong>Auto-routing</strong> - przypisanie do właściwego działu</li>
+                <li><strong>Priorytetyzacja</strong> - pilne sprawy na początek</li>
+                <li><strong>Auto-response</strong> - automatyczne odpowiedzi dla prostych pytań</li>
+            </ul>
+            <div class="highlight" style="margin-top: 20px;">
+                <strong>Rezultat:</strong> 70% zgłoszeń obsłużonych automatycznie, czas odpowiedzi ↓ 85%
+            </div>
+        </div>
+
+        <!-- Slajd 18: Zasoby -->
+        <div class="slide">
+            <h2>📚 Dalsze kroki i zasoby</h2>
+            <h3>Kursy i dokumentacja:</h3>
+            <ul>
+                <li>Hugging Face Course - <em>huggingface.co/course</em></li>
+                <li>Fast.ai NLP - <em>fast.ai</em></li>
+                <li>Papers With Code - <em>paperswithcode.com</em></li>
+            </ul>
+            <h3>Community:</h3>
+            <ul>
+                <li>Hugging Face Discord</li>
+                <li>r/MachineLearning, r/LanguageTechnology</li>
+                <li>Lokalne AI/ML meetupy</li>
+            </ul>
+            <h3>Praktyka:</h3>
+            <ul>
+                <li>Zbuduj własnego chatbota</li>
+                <li>Fine-tunuj model na własnych danych</li>
+                <li>Stwórz system analizy dokumentów</li>
+            </ul>
+        </div>
+
+        <!-- Slajd 19: Podsumowanie -->
+        <div class="slide">
+            <h2>🎓 Podsumowanie szkolenia</h2>
+            <div class="two-column">
+                <div class="box">
+                    <h3>Dzień 1</h3>
+                    <ul>
+                        <li>Podstawy NLP</li>
+                        <li>NLTK, spaCy, HF</li>
+                        <li>Tokenizacja, lematyzacja</li>
+                        <li>Sentiment, klasyfikacja</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>Dzień 2</h3>
+                    <ul>
+                        <li>Transformers</li>
+                        <li>BERT, GPT, T5</li>
+                        <li>Fine-tuning</li>
+                        <li>Zastosowania biznesowe</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight" style="margin-top: 40px; text-align: center; font-size: 1.5em;">
+                <strong>Kluczowy wniosek:</strong> NLP to potężne narzędzie, które może <br>zrewolucjonizować Twój biznes! 🚀
+            </div>
+        </div>
+
+        <!-- Slajd 20: Zakończenie -->
+        <div class="slide title-slide">
+            <h1><span class="emoji">🎉</span> Dziękuję!</h1>
+            <h1>Gratulacje!</h1>
+            <p class="subtitle" style="margin-top: 40px;">Ukończyłeś szkolenie z NLP</p>
+            <p class="subtitle" style="font-size: 1.8em; margin-top: 60px;">
+                <strong>Powodzenia w Twoich projektach AI!</strong> 🚀
+            </p>
+            <p class="subtitle" style="margin-top: 60px; font-size: 1.1em;">
+                Materiały szkoleniowe dostępne w katalogu <strong>szkolenie_nlp/</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="slide-number">
+        <span id="current-slide">1</span> / <span id="total-slides">20</span>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prev-btn">← Poprzedni</button>
+        <button class="nav-button" id="next-btn">Następny →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        document.getElementById('next-btn').addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Obsługa klawiatury
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            } else if (e.key === 'ArrowRight' || e.key === ' ') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'Home') {
+                showSlide(0);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides - 1);
+            }
+        });
+    </script>
+</body>
+</html>
