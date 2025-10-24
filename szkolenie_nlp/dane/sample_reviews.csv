@@ -1,0 +1,21 @@
+text,sentiment,rating
+"Świetny produkt! Bardzo jestem zadowolony z zakupu.",positive,5
+"Okropna jakość. Nie polecam.",negative,1
+"Całkiem niezły, spełnia oczekiwania.",neutral,3
+"Najlepszy zakup w tym roku! Rewelacja!",positive,5
+"Totalna porażka. Zwracam.",negative,1
+"Produkt OK, nic specjalnego.",neutral,3
+"Fantastyczna jakość wykonania. Polecam!",positive,5
+"Nie warto. Słaba jakość za taką cenę.",negative,2
+"Solidny produkt. Spełnia podstawowe funkcje.",neutral,4
+"Zachwycony! Dokładnie tego szukałem.",positive,5
+"Rozczarowany. Oczekiwałem więcej.",negative,2
+"Produkt przeciętny. Są lepsze opcje.",neutral,3
+"Excellent quality! Highly recommend!",positive,5
+"Terrible experience. Never again.",negative,1
+"It's okay for the price.",neutral,3
+"Amazing product! Worth every penny.",positive,5
+"Poor quality. Disappointed.",negative,2
+"Does the job. Nothing special.",neutral,3
+"Love it! Best purchase this year.",positive,5
+"Not worth the money. Returning it.",negative,1

@@ -1,0 +1,68 @@
+From: jan.kowalski@example.com
+To: support@firma.pl
+Subject: Pytanie o status zamówienia
+
+Dzień dobry,
+
+Chciałbym zapytać o status mojego zamówienia nr 12345. Złożyłem je tydzień temu i nadal nie otrzymałem potwierdzenia wysyłki. Czy mogliby Państwo sprawdzić co się dzieje?
+
+Z poważaniem,
+Jan Kowalski
+
+---
+
+From: anna.nowak@example.com
+To: sales@firma.pl
+Subject: Zapytanie ofertowe
+
+Szanowni Państwo,
+
+Jestem zainteresowana zakupem 50 sztuk Waszego produktu X. Czy moglibyście przesłać mi ofertę cenową dla takiej ilości? Interesuje mnie również termin realizacji zamówienia.
+
+Czekam na odpowiedź.
+
+Pozdrawiam,
+Anna Nowak
+Dział Zakupów, ABC Corp
+
+---
+
+From: piotr.wisniewski@example.com
+To: complaints@firma.pl
+Subject: Reklamacja produktu
+
+Dzień dobry,
+
+Niestety muszę zgłosić reklamację produktu zakupionego w zeszłym tygodniu. Produkt przestał działać po dwóch dniach użytkowania. Numer zamówienia: 67890. Proszę o kontakt w sprawie zwrotu lub wymiany.
+
+Liczę na szybką odpowiedź.
+
+Piotr Wiśniewski
+
+---
+
+From: maria.kowalczyk@example.com
+To: info@firma.pl
+Subject: Podziękowanie
+
+Witam,
+
+Chciałabym podziękować za świetną obsługę i szybką dostawę. Produkt jest dokładnie taki jak w opisie. Z pewnością wrócę po kolejne zakupy!
+
+Polecam wszystkim!
+
+Maria Kowalczyk
+
+---
+
+From: tomasz.lewandowski@example.com
+To: support@firma.pl
+Subject: Problem techniczny
+
+Dzień dobry,
+
+Mam problem z zalogowaniem się na moje konto. Reset hasła nie działa. Próbowałem już kilka razy. Czy moglibyście pomóc w rozwiązaniu tego problemu?
+
+Pilna sprawa!
+
+Tomasz Lewandowski
